@@ -12,7 +12,7 @@ const Todo = () => {
      const inputText = inputRef.current.value.trim();   //trim() method added to trim extra spaces at start and end 
 
     //  console.log(inputText);
-    if(inputText === ""){  // if empty .. then below lines will be skipped
+    if(inputText === ""){  // if input field is empty and Add button is pressed mistakenly .. then below lines will be skipped
       return null;
     }
 
@@ -20,17 +20,17 @@ const Todo = () => {
       id: Date.now(),
       text: inputText,
       isComplete:false,
-    }
+    } 
 
     setTodoList((prev)=> [...prev , newTodo]);
 
-    inputRef.current.value = "";
+    inputRef.current.value = "";   // After adding newTodo .. we will clear the input field.
   }
 
 
   const deleteTodo = (id ) => {
     setTodoList((prevTodos)=>{
-      return prevTodos.filter((todo) => todo.id !== id)
+      return prevTodos.filter((todo) => todo.id !== id)  // it will return all the todo's id whose id is not equal to (id); 
     })
   }
 
